@@ -43,7 +43,7 @@ RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # Mark zsh as default shell
 # RUN chsh -s /usr/bin/zsh
 # Enable pnpm
-# RUN corepack enable
+RUN corepack enable
 # install nest cli
 RUN npm config set registry https://registry.npmmirror.com
 RUN npm install -g @nestjs/cli --verbose

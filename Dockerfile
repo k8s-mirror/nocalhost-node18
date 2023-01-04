@@ -7,7 +7,7 @@ ARG ROOTHOME=/home/bandcap
 RUN mkdir -p $ROOTHOME
 ENV HOME=$ROOTHOME
 
-RUN apt-get update 
+RUN apt-get update && apt-get upgrade -y
 RUN apt install --force-yes -y ca-certificates curl \
     build-essential gcc g++ \
     tzdata zip unzip vim wget zsh \
@@ -34,7 +34,7 @@ RUN apt-get autoremove -y \
 #     -a 'bindkey "\$terminfo[kcud1]" history-substring-search-down'
 
 # 使用zsh
-RUN wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O- | zsh || true
+RUN wget https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 
 # Modify Timezone
 ENV TZ Asia/Shanghai
